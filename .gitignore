@@ -1,0 +1,25 @@
+# Project exclude paths
+/.gradle/
+/Battleship/task/build/
+/Battleship/task/out/production/classes/
+/Topics/Custom exceptions/DriverNotReadyException/out/
+/Topics/Custom exceptions/DriverNotReadyException/out/production/classes/
+/Topics/Getters and setters/Getting the fullname/out/
+/Topics/Getters and setters/Getting the fullname/out/production/classes/
+/Topics/Input streams/Convert to bytes/out/
+/Topics/Input streams/Convert to bytes/out/production/classes/
+/Topics/Input streams/Count words/out/
+/Topics/Input streams/Count words/out/production/classes/
+/Topics/Input streams/Reverse input text/out/
+/Topics/Input streams/Reverse input text/out/production/classes/
+/Topics/Multidimensional array/Rotate a rectangle array/out/
+/Topics/Multidimensional array/Rotate a rectangle array/out/production/classes/
+/Topics/Multidimensional array/Symmetric matrix/out/
+/Topics/Multidimensional array/Symmetric matrix/out/production/classes/
+/Topics/Package/Getting input/out/
+/Topics/Package/Getting input/out/production/classes/
+/Topics/The main method/Theory/build/
+/Topics/Throwing exceptions/Days of the week/out/
+/Topics/Throwing exceptions/Days of the week/out/production/classes/
+/Topics/Throwing exceptions/The root of a number/out/
+/Topics/Throwing exceptions/The root of a number/out/production/classes/
