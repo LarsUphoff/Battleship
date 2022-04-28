@@ -1,7 +1,5 @@
 package battleship;
 
-import java.util.Arrays;
-
 public enum Player {
 
     PLAYER_1("Player 1"),

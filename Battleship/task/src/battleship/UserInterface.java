@@ -7,21 +7,21 @@ public class UserInterface {
     Battlefield emptyBattlefield = new Battlefield();
     ShipPlacer shipPlacer = new ShipPlacer(this);
     ShotController shotController = new ShotController(this);
-    Coordinator coordinator = new Coordinator(this);
     private boolean coordinatesDoNotMatchFormat = false;
 
     public void start() {
         placeYourShips(Player.PLAYER_1);
         promptUserToPassMove();
         placeYourShips(Player.PLAYER_2);
-        coordinator.makeYourMoves();
+        shotController.makeYourMoves();
     }
 
     private void placeYourShips(Player player) {
-        coordinator.setCurrentPlayer(player);
+        shipPlacer.setCurrentPlayer(player);
+        shotController.setCurrentPlayer(player);
         promptPlayerXToPlaceShips(player);
         emptyBattlefield.printBattlefield();
-        coordinator.placeShips();
+        shipPlacer.placeShips();
     }
 
     private void promptPlayerXToPlaceShips(Player player) {
@@ -37,13 +37,13 @@ public class UserInterface {
             System.out.println("Error! Your input does not match the required format! Try again:");
             coordinatesDoNotMatchFormat = false;
             return true;
-        } else if (coordinator.shipLocationIsWrong()) {
+        } else if (shipPlacer.shipLocationIsWrong()) {
             System.out.println("Error! Wrong ship location! Try again:");
             return true;
-        } else if (coordinator.shipLengthIsWrong()) {
+        } else if (shipPlacer.shipLengthIsWrong()) {
             System.out.println("Error! Wrong length of the " + player.getCurrentShip().getName() + "! Try again:");
             return true;
-        } else if (coordinator.shipIsTooClose()) {
+        } else if (shipPlacer.shipIsTooClose()) {
             System.out.println("Error! You placed it too close to another one. Try again:");
             return true;
         }
@@ -71,17 +71,17 @@ public class UserInterface {
             System.out.println("\nError! You entered the wrong coordinates! Try again:");
             coordinatesDoNotMatchFormat = false;
             return true;
-        } else if (coordinator.gameIsFinished()) {
-            coordinator.handleShotOutcome("You sank the last ship. You won. Congratulations!", Cell.X.getStatus());
+        } else if (shotController.gameIsFinished()) {
+            shotController.handleShotOutcome("You sank the last ship. You won. Congratulations!", Cell.X.getStatus());
             return false;
-        } else if (coordinator.aShipHasSunk()) {
-            coordinator.handleShotOutcome("You sank a ship!", Cell.X.getStatus());
+        } else if (shotController.aShipHasSunk()) {
+            shotController.handleShotOutcome("You sank a ship!", Cell.X.getStatus());
             return false;
-        } else if (coordinator.aShipWasHit()) {
-            coordinator.handleShotOutcome("You hit a ship!", Cell.X.getStatus());
+        } else if (shotController.aShipWasHit()) {
+            shotController.handleShotOutcome("You hit a ship!", Cell.X.getStatus());
             return false;
-        } else if (coordinator.shotIsAMiss()) {
-            coordinator.handleShotOutcome("You missed!", Cell.M.getStatus());
+        } else if (shotController.shotIsAMiss()) {
+            shotController.handleShotOutcome("You missed!", Cell.M.getStatus());
             return false;
         }
         return true;

@@ -1,6 +1,6 @@
 package battleship;
 
-public class ShotController extends Controller{
+public class ShotController extends Controller {
 
     private boolean aShipWasHit = false;
     private boolean aShipHasSunk = false;
