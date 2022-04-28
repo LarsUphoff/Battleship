@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     Battlefield emptyBattlefield = new Battlefield();
+    ShipPlacer shipPlacer = new ShipPlacer(this);
+    ShotController shotController = new ShotController(this);
     Coordinator coordinator = new Coordinator(this);
     private boolean coordinatesDoNotMatchFormat = false;
 
